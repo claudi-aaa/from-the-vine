@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="shortcut icon" href="images/ftv-favicon.png">
+    <title> From the Vine | Register</title>
+
+    <script src="scripts/register.js" defer></script>
+
+</head>
+<body>
+    <div id="flex-container">
+
+        <%- include('../partials/publicnav') %>
+
+        
+    
+        <h2 class="section-header">Register</h2>
+        <div class="register-container">
+            <form action="register" method="POST" class="wine-form" novalidate>
+                <label for="username">
+                    Username:
+                    <p class="input-guide">*username must be at least 3 characters</p>
+                </label>
+                <input 
+                    type="text" 
+                    id="username"
+                    name="username"
+                    value=""
+                    placeholder="jdoe"
+                    maxLength="180"
+                    minLength="3"
+                    required
+                />
+                <span></span><br />
+                <span class="error input-check" aria-live="polite"></span><br />
+
+                <label for="email">
+                    Email:
+                </label>
+                <input 
+                    type="email" 
+                    id="email"
+                    name="email"
+                    value=""
+                    placeholder="jdoe@email.com"
+                    maxLength="254"
+                    minLength="7"
+                    required
+                />
+                <span></span><br />
+                <span class="error" aria-live="polite"></span><br />
+    
+                <label for="confirmEmail">
+                    Confirm email: 
+                </label>
+                <input               
+                    type="email" 
+                    id="confirmEmail"
+                    name="confirmEmail"
+                    value=""
+                    placeholder="jdoe@email.com"
+                    maxLength="254"
+                    minLength="7"
+                    required
+                />
+                <span></span><br />
+                <span class="error" aria-live="polite"></span><br />
+    
+                <label for="password">
+                    Password:
+                    <p class="input-guide">*password must be at least 8-64 characters in length and contain at least one lowercase character, one uppercase character, one number and one special character !#%</p>
+                </label>
+                <input               
+                    type="password" 
+                    id="password"
+                    name="password"
+                    value=""
+                    placeholder="password"
+                    maxLength="64"
+                    minLength="8"
+                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*?[0-9])(?=.*?[!#%])[A-Za-z0-9!#%]{8,64}"
+                    required
+                />
+                <span></span><br />
+                <span class="error" aria-live="polite"></span><br />
+    
+                <label for="confirmPassword">
+                    Confirm password:
+                </label>
+                <input 
+                    type="password" 
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    value=""
+                    placeholder="password"
+                    maxLength="64"
+                    minLength="8"
+                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*?[0-9])(?=.*?[!#%])[A-Za-z0-9!#%]{8,64}"
+                    required
+                />
+                <span></span><br />
+                <span class="error" aria-live="polite"></span><br />
+    
+    
+                <!-- <label for="ofAge">
+                    Check to confirm you are 18+
+                    <input 
+                    type="checkbox"
+                    id="ofAge"
+                    name="ofAge"
+                    />
+                </label>
+                <span></span><br />
+                <span class="error" aria-live="polite"></span><br /> -->
+    
+                <br />
+                <input 
+                    type="submit"
+                    value="Submit"
+                    id="log"
+                    class="full-btn"
+                />
+            </form>
+        </div>
+    
+    
+        <%- include('../partials/footer') %>
+    </div>
+
+</body>
+</html>

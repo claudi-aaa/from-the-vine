@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="shortcut icon" href="images/ftv-favicon.png">
+
+    <title>From the Vine | Manage Notes</title>
+</head>
+<body>
+    <div id="flex-container">
+
+        <%- include('../partials/authnav') %>
+
+
+
+        <div class="post-container">
+            <div class="section-title">
+                <h2><%= username %> wine notes:</h2>
+            </div>
+        <% if(userNotes) { %>
+            <% userNotes.forEach(function(note) {%>
+                <article class="single-post">
+                    <h3><%=note.wname %>  <%=note.wyear%> - <%=note.winery%></h3>
+                    <p class="post-author"><%=note.username %> | <%=note.date_posted.toDateString()%></p>
+                    <p><%=note.content%></p>
+                    <div class="manage-btns">
+                        <!-- <form action="edit" method="PUT">
+                            <input type="hidden" name="postId" value="<%=note.post_id%>"/>
+                            <button type="submit" class="outline-btn" id="edit-btn">Edit</button>
+                        </form> -->
+                        <form action="delete" method="POST">
+                            <input type="hidden" name="postId" value="<%=note.post_id%>"/>
+                            <input type="hidden" name="postUsername" value="<%=note.username%>"/>
+                            <button class="full-btn" id="delete-btn">Delete</button>
+                        </form>
+                    </div>
+                </article>
+            <% }); %>
+
+        <% } else { %>
+            <div class="section-title">
+                You have no posts!
+            </div>
+        <% } %>
+        </div>
+
+<!-- 
+        <div class="post-container">
+            <div class="section-title">
+                <h2>username... wine notes</h2>
+            </div>
+            <article class="single-post">
+                <h3>Title of post</h3>
+                <p class="post-author">Username | Time </p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt reiciendis ab magni voluptas. Quas exercitationem alias, beatae iste eveniet at? Omnis id fuga ipsam vitae fugiat minus ducimus iusto explicabo!</p>
+                <div class="manage-btns">
+                    <form action="" method="PUT">
+                        <button type="submit" class="outline-btn" id="edit-btn">Edit</button>
+                    </form>
+                    <form action="" method="DELETE">
+                        <button class="full-btn" id="delete-btn">Delete</button>
+                    </form>
+                </div>
+            </article>
+            <article class="single-post">
+                <h3>Title of post</h3>
+                <p class="post-author">Username | Time </p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt reiciendis ab magni voluptas. Quas exercitationem alias, beatae iste eveniet at? Omnis id fuga ipsam vitae fugiat minus ducimus iusto explicabo!</p>
+                <div class="manage-btns">
+                    <form action="" method="PUT">
+                        <button type="submit" class="outline-btn" id="edit-btn">Edit</button>
+                    </form>
+                    <form action="" method="DELETE">
+                        <button class="full-btn" id="delete-btn">Delete</button>
+                    </form>
+                </div>
+            </article>
+            <article class="single-post">
+                <h3>Title of post</h3>
+                <p class="post-author">Username | Time </p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt reiciendis ab magni voluptas. Quas exercitationem alias, beatae iste eveniet at? Omnis id fuga ipsam vitae fugiat minus ducimus iusto explicabo!</p>
+                <div class="manage-btns">
+                    <form action="" method="PUT">
+                        <button type="submit" class="outline-btn" id="edit-btn">Edit</button>
+                    </form>
+                    <form action="" method="DELETE">
+                        <button class="full-btn" id="delete-btn">Delete</button>
+                    </form>
+                </div>
+            </article>
+            <article class="single-post">
+                <h3>Title of post</h3>
+                <p class="post-author">Username | Time </p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt reiciendis ab magni voluptas. Quas exercitationem alias, beatae iste eveniet at? Omnis id fuga ipsam vitae fugiat minus ducimus iusto explicabo!</p>
+                <div class="manage-btns">
+                    <form action="" method="PUT">
+                        <button type="submit" class="outline-btn" id="edit-btn">Edit</button>
+                    </form>
+                    <form action="" method="DELETE">
+                        <button class="full-btn" id="delete-btn">Delete</button>
+                    </form>
+                </div>
+            </article> -->
+       
+       
+        </div>
+    
+        <%- include('../partials/footer') %>
+    </div>
+    
+</body>
+</html>
